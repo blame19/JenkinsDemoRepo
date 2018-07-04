@@ -13,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
               
-              sh 'pip 'install coverage'
+              sh 'pip install coverage'
               sh 'pip install pytest'
 	      sh 'pip install pytest-cov'
               sh 'pip install python-coveralls'
