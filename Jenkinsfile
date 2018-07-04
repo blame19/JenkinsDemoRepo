@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-              pip --version
+              
               pip install coverage
               pip install pytest
 	      pip install pytest-cov
