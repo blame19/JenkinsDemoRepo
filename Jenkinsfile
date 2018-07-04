@@ -5,18 +5,18 @@ pipeline {
         stage('build') {
 	    steps {
               sh 'echo "this"'
-              yum 'install python2-pip.noarch -y'
-	      python 'setup.py'
+              sh 'yum install python2-pip.noarch -y'
+	      sh 'python setup.py'
             }	
 
         }
         stage('Test') {
             steps {
               
-              pip 'install coverage'
-              pip 'install pytest'
-	      pip 'install pytest-cov'
-              pip 'install python-coveralls'
+              sh 'pip 'install coverage'
+              sh 'pip install pytest'
+	      sh 'pip install pytest-cov'
+              sh 'pip install python-coveralls'
               sh 'py.test --cov-report= --cov=JenkinsDemoRepo tests.py'
 
 	     } 
