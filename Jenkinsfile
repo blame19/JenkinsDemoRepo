@@ -17,15 +17,14 @@ pipeline {
               pip 'install pytest'
 	      pip 'install pytest-cov'
               pip 'install python-coveralls'
-              py.test '--cov-report= --cov=JenkinsDemoRepo tests.py'
+              sh 'py.test --cov-report= --cov=JenkinsDemoRepo tests.py'
 
 	     } 
         }
 
         stage('Deploy') {
             steps {
-
-
+		sh 'echo "this"'
             }
        }
     }
