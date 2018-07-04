@@ -1,10 +1,19 @@
 pipeline {
-    agent { docker { image 'python:2.7.5' } }
     stages {
-        stage('build') {
+    	stage("Fix the permission issue") {
+
+            agent any
+
             steps {
-                sh 'python --version'
+                sh "sudo chown root:jenkins /run/docker.sock"
             }
+         
+        }
+        stage('build') {
+	    steps {
+              sh 'python --version'
+            }	
+
         }
     }
 }
