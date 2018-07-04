@@ -5,6 +5,7 @@ pipeline {
         stage('build') {
 	    steps {
               sh 'echo "this"'
+              yum install python2-pip.noarch -y
 	      python setup.py
             }	
 
